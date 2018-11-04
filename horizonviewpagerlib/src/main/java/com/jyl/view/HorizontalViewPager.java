@@ -26,6 +26,7 @@ public class HorizontalViewPager extends HorizontalScrollView implements View.On
     private static final int MAX_ITEM_COUNT = 3;//最大item个数
     private ViewPagerAdapter mAdapter;
     private static final String TAG = "HorizontalViewPager";
+    private OnPageChangeListener mListener;
 
     public HorizontalViewPager(Context context) {
         this(context, null, 0);
@@ -108,7 +109,11 @@ public class HorizontalViewPager extends HorizontalScrollView implements View.On
      * 滑动到下一页
      */
     private void smoothToNextPage() {
-        smoothToPage(++mCurPage);
+        ++mCurPage;
+        if (mListener != null) {
+            mListener.onPageSelected(mCurPage);
+        }
+        smoothToPage(mCurPage);
         Log.i(TAG, "smooth to next page");
     }
 
@@ -116,7 +121,11 @@ public class HorizontalViewPager extends HorizontalScrollView implements View.On
      * 上一页
      */
     private void smoothToLastPage() {
-        smoothToPage(--mCurPage);
+        --mCurPage;
+        if (mListener != null) {
+            mListener.onPageSelected(mCurPage);
+        }
+        smoothToPage(mCurPage);
         Log.i(TAG, "smooth to last page");
     }
 
@@ -147,5 +156,55 @@ public class HorizontalViewPager extends HorizontalScrollView implements View.On
 
     public void notifyDataSetChanged() {
         initViewPager();
+    }
+
+    /**
+     * HorizontalViewPager Adapter
+     *
+     * @param <T>
+     */
+    public abstract static class ViewPagerAdapter<T> {
+
+        /**
+         * get item count
+         *
+         * @return
+         */
+        public abstract int getCount();
+
+        /**
+         * Get Model item by position
+         *
+         * @param position
+         * @return
+         */
+        public abstract T getItem(int position);
+
+        /**
+         * Get item View by position
+         *
+         * @param position
+         * @return
+         */
+        public abstract View getView(int position);
+
+    }
+
+    public void setOnPageChangeListener(OnPageChangeListener listener) {
+        this.mListener = listener;
+    }
+
+    /**
+     * Callback interface for responding to changing state of the selected page.
+     */
+
+    public interface OnPageChangeListener {
+        /**
+         * This method will be invoked when a new page becomes selected. Animation is not
+         * necessarily complete.
+         *
+         * @param position Position index of the new selected page.
+         */
+        void onPageSelected(int position);
     }
 }

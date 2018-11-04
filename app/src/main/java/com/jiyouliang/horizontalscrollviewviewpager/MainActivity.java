@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.jyl.view.HorizontalViewPager;
-import com.jyl.view.ViewPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         myViewPager = (HorizontalViewPager) findViewById(R.id.viewpager);
     }
 
-    private static class MyAdapter extends ViewPagerAdapter<MyModel> {
+    private static class MyAdapter extends HorizontalViewPager.ViewPagerAdapter<MyModel> {
 
         private final int mScreenWidth;
         private Context mContext;

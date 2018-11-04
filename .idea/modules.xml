@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/HorizontalScrollViewViewPager.iml" filepath="$PROJECT_DIR$/HorizontalScrollViewViewPager.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/horizonviewpagerlib/horizonviewpagerlib.iml" filepath="$PROJECT_DIR$/horizonviewpagerlib/horizonviewpagerlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/listviewwithviewpager/listviewwithviewpager.iml" filepath="$PROJECT_DIR$/listviewwithviewpager/listviewwithviewpager.iml" />
     </modules>
   </component>
 </project>
