@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.jiyouliang.horizontalscrollviewviewpager.MainActivity">
 
-    <com.jiyouliang.horizontalscrollviewviewpager.MyViewPager
+    <com.jyl.view.HorizontalViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="80dp" />
 
