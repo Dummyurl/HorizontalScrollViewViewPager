@@ -1,12 +1,14 @@
 package com.jyl.listview;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             this.mContext = parent.getContext();
             if (viewType == TYPE_HEADER) {
-                HorizontalViewPager viewPager = new HorizontalViewPager(parent.getContext());
-                return new HeaderViewHolder(viewPager);
+                View headerView = LayoutInflater.from(mContext).inflate(R.layout.viewpager_layout, null);
+                return new HeaderViewHolder(headerView);
             } else {
                 View normalItemView = LayoutInflater.from(mContext).inflate(R.layout.item_recyclerview, null);
                 return new NormalViewHolder(normalItemView);
@@ -97,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             HorizontalViewPager viewPager = holder.viewPager;
+//            ViewGroup.LayoutParams p = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//            viewPager.setLayoutParams(p);
             viewPager.setAdapter(new MyViewPagerAdapter(mContext, mData, mScreenWidth));
             viewPager.setOnPageChangeListener(new HorizontalViewPager.OnPageChangeListener() {
                 @Override
@@ -139,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
         public HeaderViewHolder(View itemView) {
             super(itemView);
-            this.viewPager = (HorizontalViewPager) itemView;
+            this.viewPager = itemView.findViewById(R.id.viewpager);
         }
     }
 
@@ -170,12 +174,19 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View getView(int position) {
             ImageView iv = new ImageView(mContext);
-            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(mScreenWidth, LinearLayout.LayoutParams.WRAP_CONTENT);
+            iv.setBackgroundResource(getItem(position % getCount()).getResId());
+            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(mScreenWidth, dp2Pix(mContext, 140));
             iv.setLayoutParams(p);
 
-            iv.setBackgroundResource(getItem(position % getCount()).getResId());
 
             return iv;
         }
+    }
+
+    private static int dp2Pix(Context context, float dp) {
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        float px = dp * ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+        return (int) px;
     }
 }

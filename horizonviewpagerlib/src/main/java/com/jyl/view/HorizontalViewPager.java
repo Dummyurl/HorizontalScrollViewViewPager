@@ -74,12 +74,7 @@ public class HorizontalViewPager extends HorizontalScrollView implements View.On
         }
     }
 
-    private static int dp2Pix(Context context, float dp) {
-        Resources resources = context.getResources();
-        DisplayMetrics metrics = resources.getDisplayMetrics();
-        float px = dp * ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
-        return (int) px;
-    }
+
 
 
     @Override

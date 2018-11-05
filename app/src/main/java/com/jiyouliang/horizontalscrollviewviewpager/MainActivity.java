@@ -1,9 +1,11 @@
 package com.jiyouliang.horizontalscrollviewviewpager;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -74,12 +76,19 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View getView(int position) {
             ImageView iv = new ImageView(mContext);
-            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(mScreenWidth, LinearLayout.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(mScreenWidth, dp2Pix(mContext, 140));
             iv.setLayoutParams(p);
 
             iv.setBackgroundResource(getItem(position % getCount()).getResId());
 
             return iv;
         }
+    }
+
+    private static int dp2Pix(Context context, float dp) {
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        float px = dp * ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+        return (int) px;
     }
 }
