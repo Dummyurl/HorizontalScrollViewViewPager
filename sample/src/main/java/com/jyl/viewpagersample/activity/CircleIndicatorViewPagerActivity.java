@@ -1,4 +1,4 @@
-package com.jyl.viewpagersample;
+package com.jyl.viewpagersample.activity;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 
 import com.jyl.view.CircleIndicatorViewPager;
 import com.jyl.view.HorizontalViewPager;
+import com.jyl.viewpagersample.R;
+import com.jyl.viewpagersample.model.MyModel;
 
 import java.util.ArrayList;
 import java.util.List;

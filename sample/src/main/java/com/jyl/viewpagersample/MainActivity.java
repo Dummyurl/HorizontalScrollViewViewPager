@@ -8,14 +8,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.jyl.viewpagersample.activity.CircleIndicatorViewPagerActivity;
+import com.jyl.viewpagersample.activity.HorizontalViewPagerActivity;
+import com.jyl.viewpagersample.activity.ViewPagerInRecyclerViewHeaderActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView mListView;
-    private Class[] mClasses = new Class[]{CircleIndicatorViewPagerActivity.class};
-    private String[] mTitles = new String[]{"CircleIndicatorViewPagerActivity"};
+    private Class[] mClasses = new Class[]{HorizontalViewPagerActivity.class,
+            CircleIndicatorViewPagerActivity.class, ViewPagerInRecyclerViewHeaderActivity.class};
+    private String[] mTitles = new String[]{"HorizontalViewPagerActivity", "CircleIndicatorViewPagerActivity",
+            "ViewPagerInRecyclerViewHeaderActivity"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

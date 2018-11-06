@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CircleIndicatorViewPagerActivity"></activity>
+        <activity android:name=".activity.CircleIndicatorViewPagerActivity" />
+        <activity android:name=".activity.HorizontalViewPagerActivity" />
+        <activity android:name=".activity.ViewPagerInRecyclerViewHeaderActivity"></activity>
     </application>
 
 </manifest>

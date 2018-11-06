@@ -1,4 +1,4 @@
-package com.jyl.viewpagersample;
+package com.jyl.viewpagersample.model;
 
 /**
  * Created by JiYouLiang on 2018/11/01.
