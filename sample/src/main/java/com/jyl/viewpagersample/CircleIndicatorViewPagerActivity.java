@@ -1,4 +1,4 @@
-package com.jiyouliang.horizontalscrollviewviewpager;
+package com.jyl.viewpagersample;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -6,29 +6,35 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+
+import com.jyl.view.CircleIndicatorViewPager;
 import com.jyl.view.HorizontalViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class CircleIndicatorViewPagerActivity extends AppCompatActivity implements HorizontalViewPager.OnPageChangeListener {
 
-    private HorizontalViewPager myViewPager;
+//    private HorizontalViewPager myViewPager;
     private List<MyModel> mData = new ArrayList<MyModel>();
     private int mScreenWidth;
-//    private static final
+    private CircleIndicatorViewPager mCircleIndicatorViewPager;
+    private static final String TAG = "CircleIndicator";
+    //    private static final
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_circle_indicator_view_pager);
         initView();
         initData();
+        setListener();
     }
 
     private void initData() {
@@ -43,31 +49,37 @@ public class MainActivity extends AppCompatActivity {
             mData.add(model);
         }
         MyAdapter adapter = new MyAdapter(this, mData, mScreenWidth);
-        myViewPager.setAdapter(adapter);
+        mCircleIndicatorViewPager.setAdapter(adapter);
 
     }
 
     private void initView() {
-        myViewPager = (HorizontalViewPager) findViewById(R.id.viewpager);
+        mCircleIndicatorViewPager = findViewById(R.id.civp);
+//        myViewPager = mCircleIndicatorViewPager.getViewPager();
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        Log.i(TAG, position+"");
     }
 
     private static class MyAdapter extends HorizontalViewPager.ViewPagerAdapter<MyModel> {
 
         private final int mScreenWidth;
+
         private Context mContext;
         private List<MyModel> mObjects;
-
         public MyAdapter(Context context, List<MyModel> data, int screenWidth) {
             this.mObjects = data;
             this.mContext = context;
             this.mScreenWidth = screenWidth;
         }
 
-
         @Override
         public int getCount() {
-            return 10;
+            return mObjects.size();
         }
+
 
         @Override
         public MyModel getItem(int position) {
@@ -84,12 +96,17 @@ public class MainActivity extends AppCompatActivity {
 
             return iv;
         }
-    }
 
+    }
     private static int dp2Pix(Context context, float dp) {
         Resources resources = context.getResources();
         DisplayMetrics metrics = resources.getDisplayMetrics();
         float px = dp * ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
         return (int) px;
     }
+
+    private void setListener() {
+        mCircleIndicatorViewPager.setOnPageChangeListener(this);
+    }
+
 }

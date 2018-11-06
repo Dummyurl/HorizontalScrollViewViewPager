@@ -1,1 +1,1 @@
-include ':app', ':horizonviewpagerlib', ':listviewwithviewpager'
+include ':app', ':horizonviewpagerlib', ':listviewwithviewpager', ':sample'

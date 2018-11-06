@@ -1,4 +1,4 @@
-package com.jyl.view;
+package com.jyl.viewpagersample.view;
 
 import android.content.Context;
 import android.graphics.Color;

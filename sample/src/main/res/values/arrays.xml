@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="indicatorBackgroundList">
+        <item>@drawable/bg_circle_indicator_unselected</item>
+        <item>@drawable/bg_circle_indicator_selected</item>
+    </array>
+</resources>

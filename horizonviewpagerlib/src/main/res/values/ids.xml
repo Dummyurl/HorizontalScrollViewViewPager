@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--the parent view ConstraintLayout id-->
+    <item name="circleIndicatorViewPagerId" type="id" />
+    <item name="circleIndicatorWrapperId" type="id" />
+    <item name="horizonViewPagerId" type="id" />
+</resources>

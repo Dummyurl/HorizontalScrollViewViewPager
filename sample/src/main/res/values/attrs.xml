@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleIndicatorViewPager">
+        <!--circle indicator background list,the background contain normal drawable and selected drawable.-->
+        <attr name="civpBackgroundList" format="reference" />
+    </declare-styleable>
+</resources>
