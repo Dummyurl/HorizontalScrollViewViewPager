@@ -1,6 +1,8 @@
 ## HorizontalScrollView实现ViewPager
 
-* HorizontalViewPager是一个自定义控件，通过HorizontalScrollView实现ViewPager，解决android默认ViewPager嵌套ListView无法显示问题
+ HorizontalViewPager是一个自定义控件，通过HorizontalScrollView实现ViewPager，
+
+解决android默认ViewPager嵌套RecyclerView无法显示问题
 
 
 ### 一、截图
