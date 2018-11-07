@@ -2,11 +2,11 @@ package com.jyl.view;
 
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -26,6 +26,9 @@ public class CircleIndicatorViewPager extends ConstraintLayout implements Horizo
     // default circle indicator background list
     private int[] mBgList = new int[]{R.drawable.bg_circle_indicator_unselected, R.drawable.bg_circle_indicator_selected};
     private HorizontalViewPager.OnPageChangeListener mListener;
+
+    private static final int DEFAULT_INDICATOR_SPACE = 4;// 4dp
+    private int mIndicatorSpace;
 
     public CircleIndicatorViewPager(Context context) {
         this(context, null, 0);
@@ -47,6 +50,9 @@ public class CircleIndicatorViewPager extends ConstraintLayout implements Horizo
             }
             colorsTA.recycle();
         }
+
+        //indicator space attr
+        mIndicatorSpace = a.getDimensionPixelSize(R.styleable.CircleIndicatorViewPager_civpSpace, getResources().getDimensionPixelSize(R.dimen.circle_indicator_margin));
         a.recycle();
     }
 
@@ -86,8 +92,7 @@ public class CircleIndicatorViewPager extends ConstraintLayout implements Horizo
             ImageView iv = new ImageView(getContext());
             LinearLayout.LayoutParams ivP = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
-            int margin = getResources().getDimensionPixelSize(R.dimen.circle_indicator_margin);
-            ivP.setMargins(margin, 0, margin, 0);
+            ivP.setMargins(mIndicatorSpace, 0, mIndicatorSpace, 0);
             iv.setLayoutParams(ivP);
             mCircleIndicatorWrapper.addView(iv);
         }
@@ -170,11 +175,16 @@ public class CircleIndicatorViewPager extends ConstraintLayout implements Horizo
     @Override
     public void onPageSelected(int position) {
         //fix OutOfBoundsException
-        if(position < 0) position = 0;
-        if(position >= mCircleIndicatorWrapper.getChildCount()) position = mCircleIndicatorWrapper.getChildCount() - 1;
+        if (position < 0) position = 0;
+        if (position >= mCircleIndicatorWrapper.getChildCount())
+            position = mCircleIndicatorWrapper.getChildCount() - 1;
         setCurrentPosition(position);
         if (mListener != null) {
             mListener.onPageSelected(position);
         }
+    }
+
+    private int dp2Px(int dp) {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }
 }

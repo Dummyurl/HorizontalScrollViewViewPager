@@ -4,4 +4,9 @@
         <item>@drawable/bg_circle_indicator_unselected</item>
         <item>@drawable/bg_circle_indicator_selected</item>
     </array>
+
+    <array name="rectangleBackgroundList">
+        <item>@drawable/bg_rectangle_indicator_unselected</item>
+        <item>@drawable/bg_rectangle_indicator_selected</item>
+    </array>
 </resources>

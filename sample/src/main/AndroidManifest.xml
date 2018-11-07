@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".activity.CircleIndicatorViewPagerActivity" />
         <activity android:name=".activity.HorizontalViewPagerActivity" />
-        <activity android:name=".activity.ViewPagerInRecyclerViewHeaderActivity"></activity>
+        <activity android:name=".activity.ViewPagerInRecyclerViewHeaderActivity" />
+        <activity android:name=".activity.RectangleIndicatorViewPagerActivity"></activity>
+        <activity android:name=".activity.ViewPagerInRecyclerViewHeaderActivity2"></activity>
     </application>
 
 </manifest>

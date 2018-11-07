@@ -3,5 +3,7 @@
     <declare-styleable name="CircleIndicatorViewPager">
         <!--circle indicator background list,the background contain normal drawable and selected drawable.-->
         <attr name="civpBackgroundList" format="reference" />
+        <!--The space dp between indicators, it work on view margin left and margin right attribute.-->
+        <attr name="civpSpace" format="dimension|reference" />
     </declare-styleable>
 </resources>

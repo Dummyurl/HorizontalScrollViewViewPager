@@ -10,15 +10,20 @@ import android.widget.ListView;
 
 import com.jyl.viewpagersample.activity.CircleIndicatorViewPagerActivity;
 import com.jyl.viewpagersample.activity.HorizontalViewPagerActivity;
+import com.jyl.viewpagersample.activity.RectangleIndicatorViewPagerActivity;
 import com.jyl.viewpagersample.activity.ViewPagerInRecyclerViewHeaderActivity;
+import com.jyl.viewpagersample.activity.ViewPagerInRecyclerViewHeaderActivity2;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView mListView;
     private Class[] mClasses = new Class[]{HorizontalViewPagerActivity.class,
-            CircleIndicatorViewPagerActivity.class, ViewPagerInRecyclerViewHeaderActivity.class};
+            CircleIndicatorViewPagerActivity.class, ViewPagerInRecyclerViewHeaderActivity.class,
+            ViewPagerInRecyclerViewHeaderActivity2.class,
+            RectangleIndicatorViewPagerActivity.class};
     private String[] mTitles = new String[]{"HorizontalViewPagerActivity", "CircleIndicatorViewPagerActivity",
-            "ViewPagerInRecyclerViewHeaderActivity"};
+            "ViewPagerInRecyclerViewHeaderActivity", "ViewPagerInRecyclerViewHeaderActivity2",
+            "RectangleIndicatorViewPagerActivity"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -13,6 +13,10 @@
 
 
 
+![](screenshot/screenshot3.gif)
+
+
+
 ### 二、使用步骤
 
 * 1.在project的build.gradle添加如下代码（如下图）
@@ -37,7 +41,7 @@
 
 		dependencies {
 		...
-		 'com.github.jiyouliang:HorizontalScrollViewViewPager:v1.1'
+		 'com.github.jiyouliang:HorizontalScrollViewViewPager:v1.4'
 		}
 
 
@@ -57,3 +61,29 @@
     	mViewPager.setAdapter(adapter);
 		...
 
+
+### 三、HorizontalViewPager与CircleIndicatorViewPager功能说明
+
+> 1、HorizontalViewPager显示效果如下图（没有指示器）
+
+    <com.jyl.view.HorizontalViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+![](screenshot/screenshot1.gif)
+
+
+> 2、CircleIndicatorViewPager显示指示器（指示器形状和背景图有关），其中civpBackgroundList属性用于控制指示器样式：
+
+
+    <com.jyl.view.CircleIndicatorViewPager
+        android:id="@+id/civp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:civpBackgroundList="@array/indicatorBackgroundList" />
+
+
+
+![](screenshot/screenshot4.png)
