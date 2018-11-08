@@ -2,12 +2,10 @@ package com.jyl.view;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 
@@ -17,7 +15,6 @@ import android.widget.LinearLayout;
  */
 
 public class HorizontalViewPager extends HorizontalScrollView implements View.OnTouchListener {
-    private final int mScreenWidth;
     private LinearLayout mLayoutContainer;
     private float mDownX;
     private int mCurrentPage = 0;//当前页面
@@ -45,10 +42,6 @@ public class HorizontalViewPager extends HorizontalScrollView implements View.On
         mLayoutContainer.setHorizontalScrollBarEnabled(false);
         mLayoutContainer.setVerticalScrollBarEnabled(false);
         mLayoutContainer.setLayoutParams(lp);
-        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
-        Point size = new Point();
-        wm.getDefaultDisplay().getSize(size);
-        mScreenWidth = size.x;
 
         addView(mLayoutContainer);//使用LinearLayout管理所有tab，因为HorizontalScrollView只能有一个子控件
 
@@ -138,7 +131,7 @@ public class HorizontalViewPager extends HorizontalScrollView implements View.On
             mCurrentPage = position = mLayoutContainer.getChildCount() - 1;//重置为最后一页
         }
         Log.i(TAG, "smooth to page " + position);
-        smoothScrollTo(position * mScreenWidth, 0);
+        smoothScrollTo(position * getWidth(), 0);
     }
 
 
