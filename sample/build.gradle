@@ -37,5 +37,6 @@ dependencies {
     }
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.github.romainguy:ViewServer:-SNAPSHOT'
-    implementation project(':horizonviewpagerlib')
+    implementation 'com.github.jiyouliang:HorizontalScrollViewViewPager:v1.4.1'
+
 }
