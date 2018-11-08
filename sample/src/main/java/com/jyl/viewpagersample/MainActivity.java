@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.android.debug.hv.ViewServer;
 import com.jyl.viewpagersample.activity.CircleIndicatorViewPagerActivity;
 import com.jyl.viewpagersample.activity.HorizontalViewPagerActivity;
 import com.jyl.viewpagersample.activity.RectangleIndicatorViewPagerActivity;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         initView();
         initData();
         setListener();
+        ViewServer.get(this).setFocusedWindow(this);
     }
 
     private void initView() {
@@ -50,6 +52,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void onDestroy() {
+        super.onDestroy();
+        ViewServer.get(this).removeWindow(this);
+    }
+
+    public void onResume() {
+        super.onResume();
+        ViewServer.get(this).setFocusedWindow(this);
     }
 
 }

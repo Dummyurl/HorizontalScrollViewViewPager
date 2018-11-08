@@ -43,7 +43,7 @@
 
 		dependencies {
 		...
-		 'com.github.jiyouliang:HorizontalScrollViewViewPager:v1.4'
+		 implementation 'com.github.jiyouliang:HorizontalScrollViewViewPager:v1.4'
 		}
 
 
