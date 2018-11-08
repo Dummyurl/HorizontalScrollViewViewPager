@@ -39,11 +39,11 @@
 ![](screenshot/project_gradle.png)
 
 
-* 2.在Module的build.gradle添加依赖（如下图）
+* 2.在Module的build.gradle添加依赖（如下图），**当前版本为v1.4.1**
 
 		dependencies {
 		...
-		 implementation 'com.github.jiyouliang:HorizontalScrollViewViewPager:v1.4'
+		 implementation 'com.github.jiyouliang:HorizontalScrollViewViewPager:版本'
 		}
 
 
